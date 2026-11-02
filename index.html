@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>靶场 / RANGE 01</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="viewport"></div>
+  <div id="vignette"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">⌖</span><div>靶场 <span class="brand-en">/ RANGE 01</span><small>独立训练设施 · SECTOR 07</small></div></div>
+    <div class="top-right"><span class="live-dot"></span> 训练设施在线 <span class="divider">/</span><span id="mode-label">自由练习</span><button id="sound" title="切换音效">声音 开</button></div>
+  </header>
+  <main id="menu" class="overlay">
+    <div class="intro">
+      <div class="eyebrow"><span></span> PRECISION IS A PRACTICE.</div>
+      <h1>每一发，<br>都算数<span>。</span></h1>
+      <p>放慢呼吸，找到准星。<br>在你的专属练枪场，磨练下一次命中。</p>
+      <div class="mode-select"><button class="mode active" data-mode="free"><b>01 <span>自由练习</span></b><small>无时间限制 · 随时重置靶子</small></button><button class="mode" data-mode="timed"><b>02 <span>限时挑战</span></b><small>60 秒 · 挑战你的命中纪录</small></button></div>
+      <button id="start" class="primary">进入靶场 <span>↗</span></button>
+      <div class="entry-note">桌面端体验 · 点击后锁定鼠标 · ESC 暂停</div>
+    </div>
+    <div class="range-card"><span class="card-kicker">THE TRAINING GROUND</span><h2>玻璃瓶练习区</h2><p>三组射击位 / 动态破碎 / 即时反馈</p><div class="card-line"></div><div class="card-spec"><span>装备 <b>AR–01</b></span><span>弹匣 <b>30 / ∞</b></span><span>环境 <b>室内靶场</b></span></div></div>
+    <div class="menu-bottom"><span>BUILT FOR THE NEXT SHOT.</span><span>练习原型 <b>V.01</b></span></div>
+  </main>
+  <div id="hud" hidden>
+    <div class="session"><span class="eyebrow">SESSION / 本次训练</span><div class="stat-row"><div><b id="hits">00</b><small>击碎靶子</small></div><div><b id="accuracy">—</b><small>命中率</small></div><div><b id="timer">∞</b><small id="timer-label">自由练习</small></div></div></div>
+    <div id="crosshair"><i></i><i></i><i></i><i></i><em></em></div>
+    <div id="hitmarker">×</div><div id="feedback"></div>
+    <div class="bottom-hud"><div class="location"><span class="live-dot"></span> RANGE 01 <small id="stance">站立 / 就绪</small></div><div class="weapon"><span>AR–01 <small>自动步枪 · 5.56</small></span><div><b id="ammo">30</b><span> / ∞</span></div><div class="ammo-track"><i id="ammo-bar"></i></div></div></div>
+    <div class="controls"><span><kbd>W A S D</kbd> 移动</span><span><kbd>鼠标</kbd> 射击 / 右键瞄准</span><span><kbd>R</kbd> 换弹</span><span><kbd>T</kbd> 重置靶子</span><span><kbd>ESC</kbd> 暂停</span></div>
+    <div id="reload"><span>更换弹匣</span><i></i></div>
+  </div>
+  <div id="pause" class="modal" hidden><div class="dialog"><div class="eyebrow">TAKE A BREATH.</div><h2>训练已暂停</h2><p>准备好了，继续下一发。</p><button id="resume" class="primary">继续训练 <span>↗</span></button><button id="back" class="secondary">返回主菜单</button><small>WASD 移动 · Shift 奔跑 · 空格跳跃</small></div></div>
+  <div id="results" class="modal" hidden><div class="dialog"><div class="eyebrow">SESSION COMPLETE</div><h2>训练完成<span>。</span></h2><p id="result-copy"></p><div class="result-stats"><div><b id="result-hits">0</b><small>击碎靶子</small></div><div><b id="result-accuracy">0%</b><small>命中率</small></div><div><b id="result-best">0</b><small>最佳纪录</small></div></div><button id="again" class="primary">再练一次 <span>↗</span></button><button id="result-back" class="secondary">返回主菜单</button></div></div>
+  <div id="error" hidden></div>
+  <script src="vendor/three.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
